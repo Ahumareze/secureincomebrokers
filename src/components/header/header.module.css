@@ -1,0 +1,28 @@
+.container{
+    height: 70px;
+    width: 100vw;
+    background-color: #fff;
+    border-bottom: 1px solid #000;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    padding: 0 100px;
+    box-sizing: border-box;
+    align-items: center;
+}
+.links{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 30px;
+}
+.links p{
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #000;
+}
+.links p:hover{
+    color: var(--purple);
+}
