@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 //styles
 import classes from './register.module.css';
@@ -7,15 +8,23 @@ import classes from './register.module.css';
 //components
 import { Header, Input, Password, SelectInput } from "../../components";
 
+//redux actions
+import { register } from "../../redux/actions";
+
 const Register = () => {
     //initialize
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     //form state
     const [name, setName] = useState();
     const [email, setEmail] = useState();
     const [country, setCountry] = useState();
     const [password, setPassword] = useState();
+
+    const handleRegister = () => {
+        dispatch(register(name, email, password, country));
+    }
 
     return(
         <div>
@@ -31,7 +40,7 @@ const Register = () => {
                             <SelectInput title={'Country'} onChange={e => setCountry(e)} />
                             <Password onChange={e => setPassword(e)} />
                         </div>
-                        <button>Create account</button>
+                        <button onClick={handleRegister}>Create account</button>
                         <p className={classes.loginLink} onClick={() => navigate('/login')} >Already have an account? <span>Login instead</span></p>
                     </div>
                 </div>
