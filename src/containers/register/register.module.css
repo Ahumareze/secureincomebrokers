@@ -62,3 +62,71 @@
 .loginLink span{
     color: var(--purple);
 }
+
+/*********** Email Modal styling *************/
+.emailModal{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+.emailModal_main{
+    width: 500px;
+    background-color: #fff;
+    border-radius: 15px;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+}
+.emailModal_main img{
+    height: 150px;
+}
+.emailModal_title{
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+}
+.EmailModal_text{
+    font-size: 15px;
+    color: #6f6f6f;
+    margin: 0;
+    margin-top: 7px;
+    margin-bottom: 20px;
+}
+.EmailModal_text span{
+    font-weight: 500;
+    color: #000;
+}
+.emailModal_main button{
+    height: 45px;
+    width: 200px;
+    background-color: var(--purple);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+}
+.emailModal_close{
+    height: 30px;
+    width: 30px;
+    background-color: #eeeeee;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+.emailModal_close:hover{
+    background-color: #dedede;
+}

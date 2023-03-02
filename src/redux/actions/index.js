@@ -1,5 +1,8 @@
-import { register } from "./authActions";
+import { register, init, setEmailModal, login } from "./authActions";
 
 export {
-    register
+    register,
+    init,
+    setEmailModal,
+    login
 }

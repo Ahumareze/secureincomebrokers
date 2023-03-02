@@ -1,6 +1,11 @@
 import Header from "./header/Header";
 import Footer from "./footer/Footer";
 import SideDrawer from "./sideDawer/SideDrawer";
+import Loader from "./loader/Loader";
+
+//transactions
+import TransactionModal from "./transactionModal/TransactionModal";
+import TransactionItem from "./transactionItem/TransactionItem";
 
 //inputs
 import Input from "./inputs/Input";
@@ -12,6 +17,10 @@ export {
     Header,
     Footer,
     SideDrawer,
+    Loader,
+    
+    TransactionModal,
+    TransactionItem,
 
     Input,
     SelectInput,

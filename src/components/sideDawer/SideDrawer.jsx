@@ -26,7 +26,7 @@ function SideDrawer({children}) {
             <div className={classes.SideDrawer}>
                 <p className={classes.logo}><span>Secure</span> Income Brokers</p>
                 <div className={classes.profile}>
-                    <img src='' />
+                    <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/191125_Lil_Nas_X_at_the_2019_American_Music_Awards.png/640px-191125_Lil_Nas_X_at_the_2019_American_Music_Awards.png' />
                     <h3>Ifeanyi Ahumareze</h3>
                     <p>ifeanyicodes001@gmail.com</p>
                 </div>

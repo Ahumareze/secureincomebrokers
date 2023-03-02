@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 //styles
 import classes from './register.module.css';
 
 //components
-import { Header, Input, Password, SelectInput } from "../../components";
+import { Header, Input, Loader, Password, SelectInput } from "../../components";
 
 //redux actions
 import { register } from "../../redux/actions";
+import EmailModal from "./components/EmailModal";
 
 const Register = () => {
     //initialize
@@ -22,28 +23,36 @@ const Register = () => {
     const [country, setCountry] = useState();
     const [password, setPassword] = useState();
 
+    //redux state
+    const loading = useSelector(state => state.mainReducer.loading);
+    const emailModal = useSelector(state => state.mainReducer.emailModal);
+
     const handleRegister = () => {
         dispatch(register(name, email, password, country));
-    }
+    };
+
+    const container = (
+        <div>
+            <div className={classes.formContainer}>
+                <h2>Create Account</h2>
+                <p className={classes.intro_text}>Create an account and get started</p>
+                <div className={classes.inputsContainer}>
+                    <Input title={'Fullname'} type='text' onChange={e => setName(e)} value={name} />
+                    <Input title={'Email'} type='email' onChange={e => setEmail(e)} value={email} />
+                    <SelectInput title={'Country'} onChange={e => setCountry(e)} />
+                    <Password onChange={e => setPassword(e)} value={password} />
+                </div>
+                <button onClick={handleRegister}>Create account</button>
+                <p className={classes.loginLink} onClick={() => navigate('/login')} >Already have an account? <span>Login instead</span></p>
+            </div>
+        </div>
+    )
 
     return(
         <div>
             <Header active={'Register'} />
             <div className={classes.container}>
-                <div>
-                    <div className={classes.formContainer}>
-                        <h2>Create Account</h2>
-                        <p className={classes.intro_text}>Create an account and get started</p>
-                        <div className={classes.inputsContainer}>
-                            <Input title={'Fullname'} type='text' onChange={e => setName(e)} />
-                            <Input title={'Email'} type='email' onChange={e => setEmail(e)} />
-                            <SelectInput title={'Country'} onChange={e => setCountry(e)} />
-                            <Password onChange={e => setPassword(e)} />
-                        </div>
-                        <button onClick={handleRegister}>Create account</button>
-                        <p className={classes.loginLink} onClick={() => navigate('/login')} >Already have an account? <span>Login instead</span></p>
-                    </div>
-                </div>
+                {loading ? <Loader /> : container }
                 <div className={classes.canva}>
                     <div className={classes.canva_backdrop}>
                         <div>
@@ -51,9 +60,9 @@ const Register = () => {
                             <p>Here is a dummy text about secure income brokers</p>
                         </div>
                     </div>
-                    
                 </div>
             </div>
+            {emailModal && <EmailModal email={emailModal} />}
         </div>
     )
 };
