@@ -9,7 +9,7 @@ import bitcoin from '../../assets/crypto/bitcoin.png';
 function TransactionItem() {
     return (
         <div className={classes.container}>
-            <div>1</div>
+            <div className={classes.sn}>1</div>
             <div className={classes.transaction}> <img src={bitcoin} alt='' /> Bitcoin</div>
             <div className={classes.type}>Deposit</div>
             <div className={classes.amount}>$200</div>

@@ -1,7 +1,10 @@
-import Header from "./header/Header";
 import Footer from "./footer/Footer";
 import SideDrawer from "./sideDawer/SideDrawer";
 import Loader from "./loader/Loader";
+
+//headers
+import DashboardHeader from "./dashboardHeader/DashboardHeader";
+import Header from "./header/Header";
 
 //transactions
 import TransactionModal from "./transactionModal/TransactionModal";
@@ -15,6 +18,8 @@ import Password from "./inputs/Password";
 
 export {
     Header,
+    DashboardHeader,
+
     Footer,
     SideDrawer,
     Loader,

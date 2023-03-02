@@ -1,3 +1,4 @@
 export const SETLOADING = 'SETLOADING';
 export const SETTOKEN = 'SETTOKEN';
 export const SETEMAILMODAL = 'SETEMAILMODAL';
+export const SETSHOWDRAWER = 'SETSHOWDRAWER';

@@ -75,3 +75,11 @@
         justify-self: flex-end;
     }
 }
+@media (max-width: 600px) {
+    .container{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .sn{
+        display: none;
+    }
+}

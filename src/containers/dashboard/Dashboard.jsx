@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 //components
-import { SideDrawer, TransactionItem, TransactionModal } from '../../components';
+import { DashboardHeader, SideDrawer, TransactionItem, TransactionModal } from '../../components';
 import BalanceBox from './components/BalanceBox';
 import Plans from './components/plans/Plans';
 
@@ -15,13 +15,12 @@ import { BsCreditCard2BackFill } from 'react-icons/bs';
 import { RiHandCoinFill } from 'react-icons/ri';
 
 function Dashboard() {
-    const [selectedTransaction, setSelectedTransaction] = useState(false);
 
     return (
         <>
         <SideDrawer>
             <div className={classes.container}>
-                <h2 className={classes.pageTitle}>Dashboard</h2>
+                <DashboardHeader title={'Dashboard'} />
                 <div className={classes.balanceBoxes}>
                     <BalanceBox icon={ <FaWallet size={14} /> } name='Balance' secure amount={4500} />
                     <BalanceBox icon={ <AiFillBank size={14} /> } name='Deposited' amount={710}  />
@@ -31,12 +30,12 @@ function Dashboard() {
                 <Plans />
                 <div className={classes.transactions}>
                     <div className={classes.transactions_top}>
-                        <h2>Recent Transactions</h2>
+                        <h2>Transactions</h2>
                         <button>View All</button>
                     </div>
                     <div className={classes.transactions_container}>
                         <div className={classes.transactions_header}>
-                            <div>SN</div>
+                            <div className={classes.transactions_header_sn}>SN</div>
                             <div>Transaction</div>
                             <div className={classes.transactions_header_type}>Type</div>
                             <div className={classes.transactions_header_amount}>Amount</div>
