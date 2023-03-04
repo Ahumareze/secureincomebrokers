@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 //styles
 import classes from './sidedrawer.module.css';
@@ -15,16 +16,23 @@ import { FiLogOut } from 'react-icons/fi';
 //redux actions
 import { setShowDrawer } from '../../redux/actions';
 
-function SideDrawer({children}) {
+
+function SideDrawer({children, active}) {
     //initialize
     const dispatch = useDispatch();
+    const navigate = useNavigate()
 
     //redux state
     const showDrawer = useSelector(state => state.mainReducer.showDrawer);
 
-    const Link = ({name, children, active}) => {
+    const handleNavigate = (to) => {
+        dispatch(setShowDrawer(false));
+        navigate(to)
+    }
+
+    const Link = ({name, children, active, path}) => {
         return(
-            <div className={`${classes.Link} ${active && classes.active}`}>
+            <div className={`${classes.Link} ${active && classes.active}`} onClick={() => handleNavigate(path)} >
                 {children}
                 {name}
             </div>
@@ -45,11 +53,11 @@ function SideDrawer({children}) {
                     <p>ifeanyicodes001@gmail.com</p>
                 </div>
                 <div className={classes.linksContainer}>
-                    <Link name={'Dashboard'} active> <MdSpaceDashboard size={20} /> </Link>
-                    <Link name={'Deposit'}> <AiFillBank size={20} /> </Link>
-                    <Link name={'Withdraw'}> <BsCashStack size={20} /> </Link>
-                    <Link name={'Transactions'}> <IoMdSwap size={20} /> </Link>
-                    <Link name={'Wallets'}> <FaWallet size={20} /> </Link>
+                    <Link name={'Dashboard'} active={active === 'Dashboard'} path={'/dashboard'}> <MdSpaceDashboard size={20} /> </Link>
+                    <Link name={'Deposit'} active={active === 'Deposit'} path={'/deposit'}> <AiFillBank size={20} /> </Link>
+                    <Link name={'Withdraw'} active={active === 'Withdraw'} path={'/withdraw'}> <BsCashStack size={20} /> </Link>
+                    <Link name={'Transactions'} active={active === 'Transactions'} path={'/transactions'}> <IoMdSwap size={20} /> </Link>
+                    <Link name={'Wallets'} active={active === 'Wallets'} path={'/wallets'}> <FaWallet size={20} /> </Link>
                 </div>
                 <div className={classes.logout_button}>
                     <FiLogOut size={18} /> Logout
@@ -67,11 +75,11 @@ function SideDrawer({children}) {
                             <p>ifeanyicodes001@gmail.com</p>
                         </div>
                         <div className={classes.linksContainer}>
-                            <Link name={'Dashboard'} active> <MdSpaceDashboard size={20} /> </Link>
-                            <Link name={'Deposit'}> <AiFillBank size={20} /> </Link>
-                            <Link name={'Withdraw'}> <BsCashStack size={20} /> </Link>
-                            <Link name={'Transactions'}> <IoMdSwap size={20} /> </Link>
-                            <Link name={'Wallets'}> <FaWallet size={20} /> </Link>
+                            <Link name={'Dashboard'} active={active === 'Dashboard'} path={'/dashboard'}> <MdSpaceDashboard size={20} /> </Link>
+                            <Link name={'Deposit'} active={active === 'Deposit'} path={'/deposit'}> <AiFillBank size={20} /> </Link>
+                            <Link name={'Withdraw'} active={active === 'Withdraw'} path={'/withdraw'}> <BsCashStack size={20} /> </Link>
+                            <Link name={'Transactions'} active={active === 'Transactions'} path={'/transactions'}> <IoMdSwap size={20} /> </Link>
+                            <Link name={'Wallets'} active={active === 'Wallets'} path={'/wallets'}> <FaWallet size={20} /> </Link>
                         </div>
                         <div className={classes.logout_button2}>
                             <FiLogOut size={18} /> Logout

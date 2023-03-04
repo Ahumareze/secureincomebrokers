@@ -18,7 +18,7 @@ function Dashboard() {
 
     return (
         <>
-        <SideDrawer>
+        <SideDrawer active={'Dashboard'}>
             <div className={classes.container}>
                 <DashboardHeader title={'Dashboard'} />
                 <div className={classes.balanceBoxes}>

@@ -6,6 +6,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import {
   About,
   Dashboard,
+  Deposit,
   LandingPage,
   Login,
   Register
@@ -38,6 +39,7 @@ function App() {
   const dashboardRoutes = (
     <Routes>
       <Route path='/dashboard' element={<Dashboard />} />
+      <Route path='/deposit' element={<Deposit />} />
       <Route path='*' element={<Navigate to={'/dashboard'} />} />
     </Routes>
   )
