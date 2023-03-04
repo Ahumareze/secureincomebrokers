@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 //components
 import { TransactionItem } from '../../../components';
@@ -10,6 +11,9 @@ import emptyfolder from '../../../assets/empty-folder.png';
 import classes from '../dashboard.module.css';
 
 function Transactions({data, onSelect}) {
+    //navigate
+    const navigate = useNavigate();
+
     let container;
 
     if(data){
@@ -45,7 +49,7 @@ function Transactions({data, onSelect}) {
         <div className={classes.transactions}>
             <div className={classes.transactions_top}>
                 <h2>Transactions</h2>
-                <button>View All</button>
+                <button onClick={() => navigate('/transactions')}>View All</button>
             </div>
             <div className={classes.transactions_container}>
                 <div className={classes.transactions_header}>

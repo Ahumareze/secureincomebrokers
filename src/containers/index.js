@@ -10,6 +10,8 @@ import Login from "./login/Login";
 import Dashboard from "./dashboard/Dashboard";
 import Deposit from "./deposit/Deposit";
 import Transactions from "./transactions/Transactions";
+import Withdraw from "./withdraw/Withdraw";
+import Wallets from "./wallets/Wallets";
 
 export{
     LandingPage,
@@ -20,5 +22,7 @@ export{
     
     Dashboard,
     Deposit,
-    Transactions
+    Transactions,
+    Withdraw,
+    Wallets
 }

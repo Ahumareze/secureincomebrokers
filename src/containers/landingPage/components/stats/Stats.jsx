@@ -4,16 +4,16 @@ import React from 'react';
 import classes from './stats.module.css';
 
 //icons
-import { FiClock } from 'react-icons/fi';
+import { FiClock, FiDownload, FiUpload, FiUser } from 'react-icons/fi';
 
 function Stats() {
 
-    const Item = () => {
+    const Item = ({icon, name, amount}) => {
         return(
             <div className={classes.Item}>
-                <FiClock size={50} className={classes.icon}/>
-                <h3>6,689</h3>
-                <p>Days Online</p>
+                {icon}
+                <h3>{amount}</h3>
+                <p>{name}</p>
             </div>
         )
     };
@@ -22,10 +22,10 @@ function Stats() {
         <div className={classes.container}>
             <h1><span>Our</span> Statistics</h1>
             <div className={classes.mainContainer}>
-                <Item />
-                <Item />
-                <Item />
-                <Item />
+                <Item icon={<FiClock size={50} className={classes.icon} />} name={'Days Online'} amount={'2,500 +'}/>
+                <Item icon={<FiUser size={50} className={classes.icon} />} name={'Accounts Created'} amount={'50,258'}/>
+                <Item icon={<FiDownload size={50} className={classes.icon} />} name={'Total Deposited'} amount={'$14,297,534'}/>
+                <Item icon={<FiUpload size={50} className={classes.icon} />} name={'Total Withdrawn'} amount={'$359,074,345'}/>
             </div>
         </div>
     )

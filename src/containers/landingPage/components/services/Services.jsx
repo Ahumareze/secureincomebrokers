@@ -28,7 +28,7 @@ function Services() {
             <div className={classes.mainContainer}>
                 <Service img={service1} title={'Maximum Protection'} details={'Our website is protected by SSL (Secure Socket Layer). All sensitive information submitted by our clients is automatically transferred by SSL to a secure environment. Our cashier is PCI Level 1 Merchant compliant and ensures that all your data is secured'} />
                 <Service img={service2} title={'Investors Workstation'} details={'Our flagship desktop platform designed for active investors who trade multiple products and require power and flexibility'} />
-                <Service img={service3} title={'Fast And Automated Payout'} details={'At ACCESS-PROFIT.CO INVESTMENT LIMITED, we believe that nothing should stand in-between you and your money.You are being paid directly on the maturity of the stipulated investment. You profits reaches you before not more than one hours of the time of payment'} />
+                <Service img={service3} title={'Fast And Automated Payout'} details={'Secure Income Brokers, we believe that nothing should stand in-between you and your money.You are being paid directly on the maturity of the stipulated investment. You profits reaches you before not more than one hours of the time of payment'} />
             </div>
         </div>
     )

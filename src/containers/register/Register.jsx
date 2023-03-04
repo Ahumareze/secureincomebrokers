@@ -6,12 +6,14 @@ import { useDispatch, useSelector } from "react-redux";
 import classes from './register.module.css';
 
 //components
-import { Header, Input, Loader, Password, SelectInput } from "../../components";
+import { Header, Input, Loader, Password, SelectInput, SideBar } from "../../components";
 
 //redux actions
 import { register } from "../../redux/actions";
 import EmailModal from "./components/EmailModal";
 import { countries } from "../../data";
+
+const backdrop_img = 'https://cdn01.alison-static.net/careers/career/Stock%20Trader.jpg'
 
 const Register = () => {
     //initialize
@@ -23,6 +25,9 @@ const Register = () => {
     const [email, setEmail] = useState();
     const [country, setCountry] = useState('United States of America');
     const [password, setPassword] = useState();
+
+    //UI state
+    const [showSidebar, setShowSidebar] = useState(false);
 
     //redux state
     const loading = useSelector(state => state.mainReducer.loading);
@@ -51,19 +56,20 @@ const Register = () => {
 
     return(
         <div>
-            <Header active={'Register'} />
+            <Header active={'Register'} open={() => setShowSidebar(true)} />
             <div className={classes.container}>
                 {loading ? <Loader /> : container }
-                <div className={classes.canva}>
+                <div className={classes.canva} style={{backgroundImage: `url(${backdrop_img})`}}>
                     <div className={classes.canva_backdrop}>
                         <div>
-                            <h2>Secure Income Brokers</h2>
-                            <p>Here is a dummy text about secure income brokers</p>
+                            <h2><span>Secure</span> Income Brokers</h2>
+                            <p>Our company offers trust assets management of the highest quality on the basis of foreign exchange and profitable trade through crypto exchanges</p>
                         </div>
                     </div>
                 </div>
             </div>
             {emailModal && <EmailModal email={emailModal} />}
+            {showSidebar && <SideBar close={() => setShowSidebar(false)}  />}
         </div>
     )
 };

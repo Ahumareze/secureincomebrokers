@@ -1,4 +1,5 @@
 import React from 'react';
+import { FiMenu } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
 
 //styles
@@ -12,7 +13,7 @@ const links = [
     {name: 'Register', link: '/register'},
 ]
 
-function Header({active}) {
+function Header({active, open}) {
     const navigate = useNavigate();
 
     const navigateHandler = (link) => {
@@ -28,6 +29,9 @@ function Header({active}) {
                 {links.map((i, idx) => (
                     <p onClick={() => navigateHandler(i.link)} key={idx} style={active === i.name ? {color: '#0166DA'} : {}}>{i.name}</p>
                 ))}
+                <div className={classes.menu_icon} onClick={open}>
+                    <FiMenu />
+                </div>
             </div>
         </div>
     )

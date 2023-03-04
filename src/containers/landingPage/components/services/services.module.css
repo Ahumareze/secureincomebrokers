@@ -61,3 +61,28 @@
     margin-top: 20px;
     cursor: pointer;
 }
+
+@media (max-width: 500px) {
+    .contianer{
+        width: calc(100% - 30px);
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .contianer h1{
+        font-size: 23px;
+    }
+    .intro{
+        margin: 0;
+        font-size: 14px;
+        line-height: 150%;
+    }
+    .mainContainer{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+    .service{
+        width: 100%;
+    }
+}

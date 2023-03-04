@@ -1,6 +1,7 @@
 import Footer from "./footer/Footer";
 import SideDrawer from "./sideDawer/SideDrawer";
 import Loader from "./loader/Loader";
+import SideBar from "./sideBar/SideBar";
 
 //headers
 import DashboardHeader from "./dashboardHeader/DashboardHeader";
@@ -19,6 +20,7 @@ import Password from "./inputs/Password";
 export {
     Header,
     DashboardHeader,
+    SideBar,
 
     Footer,
     SideDrawer,

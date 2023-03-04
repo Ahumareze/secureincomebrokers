@@ -62,6 +62,7 @@
 .mainContainer p{
     font-size: 18px;
     font-weight: 500;
+    line-height: 170%;
     margin: 0;
     max-width: 70%;
     animation: slideUp 0.8s ease forwards;
@@ -110,4 +111,19 @@
     align-items: center;
     justify-content: center;
     color: #fff;
+}
+@media (max-width: 700px) {
+    .backButton, .nextButton{
+        display: none;
+    }
+    .mainContainer{
+        padding: 0 20px;
+    }
+    .mainContainer h1{
+        font-size: 30px;
+    }
+    .mainContainer p{
+        max-width: 100%;
+        font-size: 14px;
+    }
 }

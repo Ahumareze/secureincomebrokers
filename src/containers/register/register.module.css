@@ -15,11 +15,12 @@
 .canva_backdrop{
     height: 100%;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.4);
     padding: 50px;
     box-sizing: border-box;
     display: flex;
     align-items: flex-end;
+    color: #fff;
 }
 .formContainer{
     width: 450px;
@@ -29,6 +30,9 @@
 }
 .formContainer h2{
     margin: 0;
+}
+.canva_backdrop h2 span{
+    color: #6db0fd;
 }
 .intro_text{
     margin: 0;
@@ -129,4 +133,16 @@
 }
 .emailModal_close:hover{
     background-color: #dedede;
+}
+
+@media (max-width: 700px) {
+    .container{
+        display: block;
+    }
+    .canva{
+        display: none;
+    }
+    .formContainer{
+        width: calc(100% - 30px);
+    }
 }

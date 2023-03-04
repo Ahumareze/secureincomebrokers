@@ -6,15 +6,20 @@ import { useDispatch, useSelector } from 'react-redux';
 import classes from './login.module.css';
 
 //components
-import { Header, Input, Loader, Password } from "../../components";
+import { Header, Input, Loader, Password, SideBar } from "../../components";
 
 //redux actions
 import { login } from '../../redux/actions';
+
+const backdrop_img = 'https://cdn01.alison-static.net/careers/career/Stock%20Trader.jpg'
 
 function Login() {
     //initialize
     const navigate = useNavigate();
     const dispatch = useDispatch();
+
+    //UI state
+    const [showSidebar, setShowSidebar] = useState(false);
     
     //form state
     const [email, setEmail] = useState();
@@ -44,18 +49,19 @@ function Login() {
 
     return (
         <div>
-            <Header active={'Login'} />
+            <Header active={'Login'} open={() => setShowSidebar(true)} />
             <div className={classes.container}>
                 {loading ? <Loader /> : container}
-                <div className={classes.canva}>
+                <div className={classes.canva} style={{backgroundImage: `url(${backdrop_img})`}}>
                     <div className={classes.canva_backdrop}>
                         <div>
-                            <h2>Secure Income Brokers</h2>
-                            <p>Here is a dummy text about secure income brokers</p>
+                            <h2><span>Secure</span> Income Brokers</h2>
+                            <p>Our company offers trust assets management of the highest quality on the basis of foreign exchange and profitable trade through crypto exchanges</p>
                         </div>
                     </div>
                 </div>
             </div>
+            {showSidebar && <SideBar close={() => setShowSidebar(false)}  />}
         </div>
     )
 }

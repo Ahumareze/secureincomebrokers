@@ -9,11 +9,12 @@ import service3 from '../../../../assets/service3.jpeg';
 
 //icons
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
+import { useNavigate } from 'react-router-dom';
 
 const frames = [
-  { id: 1, content: "This is frame 1", img: service1 },
-  { id: 2, content: "This is frame 2", img: service2 },
-  { id: 3, content: "This is frame 3", img: service3 },
+  { id: 1, title: 'Welcome to Secure Income Brokers', content: "Our company offers trust assets management of the highest quality on the basis of foreign exchange and profitable trade through crypto exchanges", img: 'https://www.niveshmarket.com/wp-content/uploads/2021/02/become-a-Forex-trader.jpg' },
+  { id: 2, title: 'Secured and Easy way to Invest your Crypto assets', content: "Proposed modalities for strengthening cooperation will be accepted by anyone who uses cryptocurrency and knows about it's fantastic prospects", img: 'https://www.ironfx.com/wp-content/uploads/2022/12/tips-forex-trader-investor.jpg' },
+  { id: 3, title: 'Reliable and Profitable Investment', content: "Investors with little to no trading experience are successfully making profits", img: 'https://www.forexfactory.com/attachment/image/2532888/thumbnail?d=1508945400' },
 ];
 
 const variants = {
@@ -36,6 +37,10 @@ const variants = {
 };
 
 const Coursel = () => {
+  //initialize
+  const navigate = useNavigate();
+
+  //UI state
   const [currentFrame, setCurrentFrame] = useState(0);
 
   const handleBack = () => {
@@ -59,9 +64,9 @@ const Coursel = () => {
         >
             <div className={classes.mainContainer}>
                 <div>
-                    <h1>Welcome To secure Income Brokers</h1>
-                    <p>Here at secure income brokers we focus on investing our clients money in crypto, that's why we are the best at what we do in this industry</p>
-                    <button>Get Started</button>
+                    <h1>{frames[currentFrame].title}</h1>
+                    <p>{frames[currentFrame].content}</p>
+                    <button onClick={() => navigate('/register')}>Get Started</button>
                 </div>
             </div>
         </motion.div>

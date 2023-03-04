@@ -47,3 +47,28 @@
     font-weight: 500;
     opacity: 0.8;
 }
+@media (max-width: 500px) {
+    .container{
+        padding-left: 15px;
+        padding-right: 15px;
+        box-sizing: border-box;
+    }
+    .container h1{
+        font-size: 23px;
+    }
+    .intro{
+        margin: 0;
+        font-size: 14px;
+        line-height: 150%;
+    }
+    .mainContainer{
+        flex-direction: column;
+        -ms-grid-row-span: 20px;
+    }
+    .Item{
+        width: 100%;
+    }
+    .middle{
+        transform: scale(1);
+    }
+}

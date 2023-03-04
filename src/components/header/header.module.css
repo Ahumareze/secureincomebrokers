@@ -8,6 +8,11 @@
     padding: 0 100px;
     box-sizing: border-box;
     align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+.logo{
+    overflow: hidden;
 }
 .logo p{
     margin: 0;
@@ -25,6 +30,7 @@
     align-items: center;
     justify-content: flex-end;
     gap: 30px;
+    width: 100%;
 }
 .links p{
     margin: 0;
@@ -35,4 +41,27 @@
 }
 .links p:hover{
     color: var(--purple);
+}
+.menu_icon{
+    height: 35px;
+    width: 35px;
+    border: 0.5px solid #cccccc;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+@media (max-width: 700px) {
+    .container{
+        padding: 0 15px;
+        width: 100%;
+        grid-template-columns: 1fr 35px;
+    }
+    .menu_icon{
+        display: flex;
+        
+    }
+    .links p{
+        display: none;
+    }
 }
