@@ -9,7 +9,8 @@ import {
   Deposit,
   LandingPage,
   Login,
-  Register
+  Register,
+  Transactions
 } from './containers';
 
 //redux actions
@@ -40,6 +41,7 @@ function App() {
     <Routes>
       <Route path='/dashboard' element={<Dashboard />} />
       <Route path='/deposit' element={<Deposit />} />
+      <Route path='/transactions' element={<Transactions />} />
       <Route path='*' element={<Navigate to={'/dashboard'} />} />
     </Routes>
   )

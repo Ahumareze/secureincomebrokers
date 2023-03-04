@@ -41,7 +41,7 @@ function Deposit() {
             <div className={classes.container}>
                 <DashboardHeader title={'Deposit'} />
                 <div className={classes.top}>
-                    <h3>Availiable Balance: <span>$590.00</span></h3>
+                    <h3>Availiable Balance: <span>${userData.basic_plan + userData.advance_plan + userData.diamond_plan} </span></h3>
                     <p>Fill out the deposit form below to fund your account.</p>
                 </div>
                 <div className={classes.mainContainer}>

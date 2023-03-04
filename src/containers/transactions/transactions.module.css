@@ -6,74 +6,25 @@
     padding: 20px;
     box-sizing: border-box;
 }
-.pageTitle{
-    font-size: 20px;
+.top{
+    width: 100%;
+    margin-top: 20px;
+}
+.top h3{
     margin: 0;
-    color: #000;
-    font-weight: 600;
-}
-
-/******** Banance box styles **********/
-.balanceBoxes{
-    width: 100%;
-    margin-top: 30px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-}
-.BalanceBox{
-    width: 100%;
-    /* border: 0.5px solid #c4c4c4; */
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.07);
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    box-sizing: border-box;
-}
-.BalanceBox:hover .BalanceBox_top div{
-    border-color: var(--purple);
-    color: var(--purple);
-}
-.BalanceBox_top{
-    display: grid;
-    grid-template-columns: 1fr 30px;
-    align-items: center;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 500;
+    color: #2a2a2a;
 }
-.BalanceBox_top div{
-    height: 30px;
-    width: 30px;
-    border-radius: 30px;
-    border: 0.5px solid #8b8b8b;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #6d6d6d;
+.top span{
+    color: rgb(0, 204, 0);
 }
-.BalanceBox_main{
-    margin-top: 30px;
-    align-items: center;
-}
-.BalanceBox_main h2{
+.top p{
     margin: 0;
-    font-weight: 600;
-    font-size: 22px;
-    color: #2c2c2c;
+    font-size: 14px;
+    opacity: 0.7;
+    margin-top: 7px;
 }
-.view_balance{
-    width: 20px;
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
-@media (max-width: 1000px) {
-    .balanceBoxes{
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
 /********** Transactions stylings ************/
 .transactions{
     width: 100%;
@@ -137,23 +88,6 @@
         display: none;
     }
 }
-@media (max-width: 1000px) {
-    .transactions_header{
-        grid-template-columns: 30px 1fr 150px 150px;
-    }
-    .transactions_header_type{
-        display: none;
-    }
-    .transactions_header_date{
-        display: none;
-    }
-    .transactions_header_status{
-        justify-content: flex-end;
-    }
-    .transactions_header_amount{
-        justify-content: flex-end;
-    }
-}
 .empty_transactions{
     height: 400px;
     width: 100%;
@@ -176,6 +110,23 @@
     margin: 0;
     margin-top: 7px;
     opacity: 0.6;
+}
+@media (max-width: 1000px) {
+    .transactions_header{
+        grid-template-columns: 30px 1fr 150px 150px;
+    }
+    .transactions_header_type{
+        display: none;
+    }
+    .transactions_header_date{
+        display: none;
+    }
+    .transactions_header_status{
+        justify-content: flex-end;
+    }
+    .transactions_header_amount{
+        justify-content: flex-end;
+    }
 }
 @media (max-width: 600px) {
     .transactions_header{

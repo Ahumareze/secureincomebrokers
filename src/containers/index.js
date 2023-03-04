@@ -9,6 +9,7 @@ import Login from "./login/Login";
 //dahsboard spages
 import Dashboard from "./dashboard/Dashboard";
 import Deposit from "./deposit/Deposit";
+import Transactions from "./transactions/Transactions";
 
 export{
     LandingPage,
@@ -18,5 +19,6 @@ export{
     Login,
     
     Dashboard,
-    Deposit
+    Deposit,
+    Transactions
 }

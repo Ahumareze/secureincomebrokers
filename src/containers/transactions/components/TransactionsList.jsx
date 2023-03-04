@@ -7,9 +7,9 @@ import { TransactionItem } from '../../../components';
 import emptyfolder from '../../../assets/empty-folder.png';
 
 //styles
-import classes from '../dashboard.module.css';
+import classes from '../transactions.module.css';
 
-function Transactions({data, onSelect}) {
+function TransactionsList({data, onSelect}) {
     let container;
 
     if(data){
@@ -39,14 +39,9 @@ function Transactions({data, onSelect}) {
                 </div>
             </div>
         )
-    };
-
+    }
     return (
         <div className={classes.transactions}>
-            <div className={classes.transactions_top}>
-                <h2>Transactions</h2>
-                <button>View All</button>
-            </div>
             <div className={classes.transactions_container}>
                 <div className={classes.transactions_header}>
                     <div className={classes.transactions_header_sn}>SN</div>
@@ -57,10 +52,9 @@ function Transactions({data, onSelect}) {
                     <div className={classes.transactions_header_date}>date</div>
                 </div>
                 {container}
-                
             </div>
         </div>
     )
 }
 
-export default Transactions
+export default TransactionsList

@@ -44,7 +44,7 @@ export const deposit = (amount, plan, coin, user) => {
         });
 
         const transaction = {
-            amount,
+            amount: JSON.parse(amount),
             plan,
             coin,
             type: 'deposit',
