@@ -1,4 +1,8 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+
+//styles
+import classes from './dashboard.module.css';
 
 //components
 import { DashboardHeader, SideDrawer, TransactionItem, TransactionModal } from '../../components';
@@ -7,27 +11,30 @@ import Plans from './components/plans/Plans';
 
 //icons
 import { FaWallet } from 'react-icons/fa';
-
-//styles
-import classes from './dashboard.module.css';
 import { AiFillBank } from 'react-icons/ai';
 import { BsCreditCard2BackFill } from 'react-icons/bs';
 import { RiHandCoinFill } from 'react-icons/ri';
 
-function Dashboard() {
 
-    return (
-        <>
-        <SideDrawer active={'Dashboard'}>
+function Dashboard() {
+    //redux state
+    const userData = useSelector(state => state.mainReducer.userData);
+
+    console.log(userData);
+
+    let container;
+
+    if(userData){
+        container = (
             <div className={classes.container}>
                 <DashboardHeader title={'Dashboard'} />
                 <div className={classes.balanceBoxes}>
-                    <BalanceBox icon={ <FaWallet size={14} /> } name='Balance' secure amount={4500} />
-                    <BalanceBox icon={ <AiFillBank size={14} /> } name='Deposited' amount={710}  />
-                    <BalanceBox icon={ <RiHandCoinFill size={14} /> } name='Earnings' amount={3500}  />
-                    <BalanceBox icon={ <BsCreditCard2BackFill size={14} /> } name='Withdrawn' amount={200}  />
+                    <BalanceBox icon={ <FaWallet size={14} /> } name='Balance' secure amount={ userData.basic_plan + userData.advance_plan + userData.diamond_plan } />
+                    <BalanceBox icon={ <AiFillBank size={14} /> } name='Deposited' amount={userData.deposited}  />
+                    <BalanceBox icon={ <RiHandCoinFill size={14} /> } name='Earnings' amount={userData.earned}  />
+                    <BalanceBox icon={ <BsCreditCard2BackFill size={14} /> } name='Withdrawn' amount={userData.withdrawn}  />
                 </div>
-                <Plans />
+                <Plans data={userData} />
                 <div className={classes.transactions}>
                     <div className={classes.transactions_top}>
                         <h2>Transactions</h2>
@@ -51,6 +58,13 @@ function Dashboard() {
                     </div>
                 </div>
             </div>
+        )
+    }
+
+    return (
+        <>
+        <SideDrawer active={'Dashboard'}>
+            {container}
         </SideDrawer>
         {/* <TransactionModal /> */}
         </>

@@ -15,7 +15,7 @@ export const fetch_data = () => {
 
         const email = localStorage.getItem('@localEmail');
 
-        axios.get(dbUrl + '/users.json').then(r => {
+        axios.get(dbUrl + 'users.json').then(r => {
             //convert to array and map
             const data = r.data;
             Object.keys(data).map(i => {

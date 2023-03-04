@@ -69,7 +69,7 @@ const postUserData = (name, email, country) => {
             img: 'https://i.pinimg.com/474x/fd/14/a4/fd14a484f8e558209f0c2a94bc36b855--milk-tart-entertaiment-news.jpg'
         }
 
-        axios.post(dbUrl + '/users.json', data).then(r => {
+        axios.post(dbUrl + 'users.json', data).then(r => {
             dispatch(setLoading(false));
             dispatch(setEmailModal(email))
         }).catch(e => {

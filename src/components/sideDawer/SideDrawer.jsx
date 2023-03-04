@@ -56,52 +56,58 @@ function SideDrawer({children, active}) {
         dispatch(setShowDrawer(false))
     };
 
-    const container = (
-        <div className={classes.container}>
-            <div className={classes.SideDrawer}>
-                <p className={classes.logo}><span>Secure</span> Income Brokers</p>
-                <div className={classes.profile}>
-                    <img src={userData.img} alt={userData.name} />
-                    <h3>{userData.name}</h3>
-                    <p>{userData.email}</p>
-                </div>
-                <div className={classes.linksContainer}>
-                    <Link name={'Dashboard'} active={active === 'Dashboard'} path={'/dashboard'}> <MdSpaceDashboard size={20} /> </Link>
-                    <Link name={'Deposit'} active={active === 'Deposit'} path={'/deposit'}> <AiFillBank size={20} /> </Link>
-                    <Link name={'Withdraw'} active={active === 'Withdraw'} path={'/withdraw'}> <BsCashStack size={20} /> </Link>
-                    <Link name={'Transactions'} active={active === 'Transactions'} path={'/transactions'}> <IoMdSwap size={20} /> </Link>
-                    <Link name={'Wallets'} active={active === 'Wallets'} path={'/wallets'}> <FaWallet size={20} /> </Link>
-                </div>
-                <div className={classes.logout_button} onClick={handleLogout} >
-                    <FiLogOut size={18} /> Logout
-                </div>
-            </div>
-            {children}
-            {showDrawer && 
-                <div className={classes.mobile_sideDrawer}>
-                    <div className={classes.mobile_sideDrawer_close} onClick={closeDrawer} />
-                    <div className={classes.mobile_sideDrawer_main}>
-                        <p className={classes.logo2}><span>Secure</span> Income Brokers</p>
-                        <div className={classes.profile}>
-                            <img src={userData.img} alt={userData.name} />
-                            <h3>{userData.name}</h3>
-                            <p>{userData.email}</p>
-                        </div>
-                        <div className={classes.linksContainer}>
-                            <Link name={'Dashboard'} active={active === 'Dashboard'} path={'/dashboard'}> <MdSpaceDashboard size={20} /> </Link>
-                            <Link name={'Deposit'} active={active === 'Deposit'} path={'/deposit'}> <AiFillBank size={20} /> </Link>
-                            <Link name={'Withdraw'} active={active === 'Withdraw'} path={'/withdraw'}> <BsCashStack size={20} /> </Link>
-                            <Link name={'Transactions'} active={active === 'Transactions'} path={'/transactions'}> <IoMdSwap size={20} /> </Link>
-                            <Link name={'Wallets'} active={active === 'Wallets'} path={'/wallets'}> <FaWallet size={20} /> </Link>
-                        </div>
-                        <div className={classes.logout_button2} onClick={handleLogout} >
-                            <FiLogOut size={18} /> Logout
-                        </div>
+    let container;
+
+    if(userData){
+        container = (
+            <div className={classes.container}>
+                <div className={classes.SideDrawer}>
+                    <p className={classes.logo}><span>Secure</span> Income Brokers</p>
+                    <div className={classes.profile}>
+                        <img src={userData.img} alt={userData.name} />
+                        <h3>{userData.name}</h3>
+                        <p>{userData.email}</p>
+                    </div>
+                    <div className={classes.linksContainer}>
+                        <Link name={'Dashboard'} active={active === 'Dashboard'} path={'/dashboard'}> <MdSpaceDashboard size={20} /> </Link>
+                        <Link name={'Deposit'} active={active === 'Deposit'} path={'/deposit'}> <AiFillBank size={20} /> </Link>
+                        <Link name={'Withdraw'} active={active === 'Withdraw'} path={'/withdraw'}> <BsCashStack size={20} /> </Link>
+                        <Link name={'Transactions'} active={active === 'Transactions'} path={'/transactions'}> <IoMdSwap size={20} /> </Link>
+                        <Link name={'Wallets'} active={active === 'Wallets'} path={'/wallets'}> <FaWallet size={20} /> </Link>
+                    </div>
+                    <div className={classes.logout_button} onClick={handleLogout} >
+                        <FiLogOut size={18} /> Logout
                     </div>
                 </div>
-            }
-        </div>
-    );
+                {children}
+                {showDrawer && 
+                    <div className={classes.mobile_sideDrawer}>
+                        <div className={classes.mobile_sideDrawer_close} onClick={closeDrawer} />
+                        <div className={classes.mobile_sideDrawer_main}>
+                            <p className={classes.logo2}><span>Secure</span> Income Brokers</p>
+                            <div className={classes.profile}>
+                                <img src={userData.img} alt={userData.name} />
+                                <h3>{userData.name}</h3>
+                                <p>{userData.email}</p>
+                            </div>
+                            <div className={classes.linksContainer}>
+                                <Link name={'Dashboard'} active={active === 'Dashboard'} path={'/dashboard'}> <MdSpaceDashboard size={20} /> </Link>
+                                <Link name={'Deposit'} active={active === 'Deposit'} path={'/deposit'}> <AiFillBank size={20} /> </Link>
+                                <Link name={'Withdraw'} active={active === 'Withdraw'} path={'/withdraw'}> <BsCashStack size={20} /> </Link>
+                                <Link name={'Transactions'} active={active === 'Transactions'} path={'/transactions'}> <IoMdSwap size={20} /> </Link>
+                                <Link name={'Wallets'} active={active === 'Wallets'} path={'/wallets'}> <FaWallet size={20} /> </Link>
+                            </div>
+                            <div className={classes.logout_button2} onClick={handleLogout} >
+                                <FiLogOut size={18} /> Logout
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        );
+    }
+
+    
 
     const loader_container = (
         <div className={classes.loader_container}>
