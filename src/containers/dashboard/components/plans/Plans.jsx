@@ -18,7 +18,7 @@ function Plans({data}) {
 
         let length;
         if(originalLength < 10){
-            length = `10%`
+            length = `5%`
         }else{
             length = `${originalLength}%`
         }
@@ -55,9 +55,9 @@ function Plans({data}) {
         <div className={classes.container}>
             <h2>Plans</h2>
             <div className={classes.mainContainer}>
-                <Plan icon={'🚀'} color={'cyan'} name={'Basic'} poleLength={'20%'} range={[50, 1000]} amount={data.basic_plan} images={plan1} users={1843} />
-                <Plan icon={'🔥'} color={'paleGreen'} name={'Advance'} poleLength={'10%'} range={[1000, 20000]} amount={data.advance_plan} images={plan2} users={406}/>
-                <Plan icon={'💎'} color={'rgb(255, 214, 239)'} name={'Premium'} poleLength={'50%'} range={[20000, 50000]} amount={data.diamond_plan} images={plan3} users={119} />
+                <Plan icon={'🚀'} color={'cyan'} name={'Basic'} poleLength={'20%'} range={[50, 3000]} amount={data.basic_plan} images={plan1} users={1843} />
+                <Plan icon={'🔥'} color={'paleGreen'} name={'Advance'} poleLength={'10%'} range={[700, 20000]} amount={data.advance_plan} images={plan2} users={406}/>
+                <Plan icon={'💎'} color={'rgb(255, 214, 239)'} name={'Premium'} poleLength={'50%'} range={[4000, 100000]} amount={data.diamond_plan} images={plan3} users={119} />
             </div>
         </div>
     )

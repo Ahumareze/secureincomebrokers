@@ -1,12 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 //styles
 import classes from './modal.module.css';
 
 //icons
 import { FiX } from 'react-icons/fi';
+import { Loader } from '../../../components';
 
-function ComfirmModal() {
+
+function ComfirmModal({plan, amount, coin, close, deposit}) {
+    //redux state
+    const depositLoading = useSelector(state => state.mainReducer.depositLoading);
+    const depositModal = useSelector(state => state.mainReducer.depositModal);
+
+    useEffect(() => {
+        if(depositModal){
+            close()
+        }
+    }, [depositModal])
 
     const Item = ({title, details}) => {
         return(
@@ -17,21 +29,47 @@ function ComfirmModal() {
         )
     };
 
+    let wallet;
+    if(coin === 'Binance'){
+        wallet = 'Bin - 1F4h7nbQjY8MFTeEhnzs6KjDYuL3Ji5xqk';
+    }else if(coin === 'Ethereum'){
+        wallet = 'Eth - 1F4h7nbQjY8MFTeEhnzs6KjDYuL3Ji5xqk'
+    }else if(coin === 'Dogecoin'){
+        wallet = 'Doge - 1F4h7nbQjY8MFTeEhnzs6KjDYuL3Ji5xqk'
+    }else{
+        wallet = 'Btc - 1F4h7nbQjY8MFTeEhnzs6KjDYuL3Ji5xqk'
+    }
+
+    let profit;
+    if(plan === 'Advance'){
+        profit = '30% After 24 Hours'
+    }else if(plan === 'Diamond'){
+        profit = '50% After 38 Hours'
+    }else{
+        profit = '7% After 24 Hours'
+    };
+
+    let container = (
+        <div>
+            <div className={classes.backdrop_close} onClick={close}> <FiX /> </div>
+            <div className={classes.top}>Confirm Deposit</div>
+            <div className={classes.intro}>Make payment into company's wallet address: <span>{wallet}</span></div>
+            <div className={classes.details}>
+                <Item title={'Plan'} details={plan} />
+                <Item title={'Profit'} details={profit} />
+                <Item title={'Principal Return'} details={'Yes'} />
+                <Item title={'Instant Withdraw'} details={'Availiable'} />
+                <Item title={'Credit Amount'} details={`$${amount.toLocaleString()}`} />
+                <Item title={'Deposit Fee'} details={'0.00% + $0.00 (min. $0.00 max. $0.00)'} />
+            </div>
+            <button onClick={deposit} >Confirm Deposit</button>
+        </div>
+    )
+
     return (
         <div className={classes.backdrop}>
             <div className={classes.backdrop_main}>
-                <div className={classes.backdrop_close}> <FiX /> </div>
-                <div className={classes.top}>Confirm Deposit</div>
-                <div className={classes.intro}>Make payment into company's wallet address: <span>1F4h7nbQjY8MFTeEhnzs6KjDYuL3Ji5xqk</span></div>
-                <div className={classes.details}>
-                    <Item title={'Plan'} details={'Basic'} />
-                    <Item title={'Profit'} details={'25.00% after 30 hours'} />
-                    <Item title={'Principal Return'} details={'Yes'} />
-                    <Item title={'Principal Withdraw'} details={'Not available'} />
-                    <Item title={'Credit Amount'} details={'$700.00'} />
-                    <Item title={'Deposit Fee'} details={'0.00% + $0.00 (min. $0.00 max. $0.00)'} />
-                </div>
-                <button>Confirm Deposit</button>
+                {depositLoading ? <Loader /> : container }
             </div>
         </div>
     )

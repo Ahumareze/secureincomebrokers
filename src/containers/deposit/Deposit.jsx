@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 //styles
 import classes from './deposit.module.css';
@@ -11,13 +12,29 @@ import ConfirmModal from './components/ConfirmModal';
 //data
 import { coins } from '../../data';
 import DoneModal from './components/DoneModal';
+
+//redux actions
+import { deposit } from '../../redux/actions';
+
 const plans = ['Basic', 'Advance', 'Diamond'];
 
 function Deposit() {
+    //initialize
+    const dispatch = useDispatch();
+
+    //redux state
+    const userData = useSelector(state => state.mainReducer.userData);
+    const depositModal = useSelector(state => state.mainReducer.depositModal);
+
     //UI state
-    const [selectedPlan, setSelectedPlan] = useState();
-    const [amount, setAmount] = useState();
-    const [selectedPayment, setSelectedPayment] = useState('Basic');
+    const [selectedPlan, setSelectedPlan] = useState('Basic');
+    const [amount, setAmount] = useState(50);
+    const [selectedPayment, setSelectedPayment] = useState('Bitcoin');
+    const [confirmModal, setConfirm] = useState(false)
+
+    const handleDeposit = () => {
+        dispatch(deposit(amount,selectedPlan, selectedPayment, userData))
+    }
 
     return (
         <SideDrawer active={'Deposit'}>
@@ -47,10 +64,11 @@ function Deposit() {
                             </div>
                         </div>
                     </div>
-                    <button>Make Deposit</button>
+                    <button onClick={() => setConfirm(true)}>Make Deposit</button>
                 </div>
             </div>
-            {/* <DoneModal /> */}
+            {confirmModal && <ConfirmModal plan={selectedPlan} amount={amount} coin={selectedPayment} close={() => setConfirm(null)} deposit={handleDeposit} />}
+            {depositModal && <DoneModal /> }
         </SideDrawer>
     );
 }

@@ -20,8 +20,6 @@ function Dashboard() {
     //redux state
     const userData = useSelector(state => state.mainReducer.userData);
 
-    console.log(userData);
-
     let container;
 
     if(userData){

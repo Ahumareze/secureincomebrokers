@@ -7,7 +7,7 @@ function Input({title, type, onChange, value}) {
     return (
         <div className={classes.container}>
             <p>{title}</p>
-            <input type={type} onChange={e => onChange(e.target.value)} value={value} />
+            <input type={type} onChange={e => onChange(e.target.value)} defaultValue={value} />
         </div>
     )
 }

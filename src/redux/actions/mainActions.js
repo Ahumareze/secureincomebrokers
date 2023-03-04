@@ -20,7 +20,9 @@ export const fetch_data = () => {
             const data = r.data;
             Object.keys(data).map(i => {
                 if(email === data[i].email){
-                    dispatch(setUserData(data[i]));
+                    const userId = i
+                    const newUser = {...data[i], userId}
+                    dispatch(setUserData(newUser));
                     dispatch(setLoading(false));
                 }
             })
@@ -30,6 +32,54 @@ export const fetch_data = () => {
         })
     };
 };
+
+export const deposit = (amount, plan, coin, user) => {
+    return dispatch => {
+        dispatch(setDepositLoader(true))
+        
+        const date = new Date().toLocaleDateString('en-US', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric'
+        });
+
+        const transaction = {
+            amount,
+            plan,
+            coin,
+            type: 'deposit',
+            status: 'pending',
+            date
+        };
+
+        if(user.transactions){
+            user.transactions.push(transaction);
+            axios.put(dbUrl + 'users/' + user.userId + '.json', user).then(r => {
+                console.log(r.data);
+                dispatch(setDepositModal(true));
+                dispatch(setDepositLoader(false))
+            }).catch(e => {
+                console.log(e);
+                dispatch(setDepositLoader(false))
+            })
+        }else{
+            const newUser = {
+                ...user,
+                transactions: []
+            };
+            newUser.transactions.push(transaction);
+            axios.put(dbUrl + 'users/' + user.userId + '.json', newUser).then(r => {
+                console.log(r.data);
+                dispatch(setDepositModal(true));
+                dispatch(setDepositLoader(false))
+            }).catch(e => {
+                console.log(e);
+                dispatch(setDepositLoader(false))
+            })
+        }
+        
+    }
+}
 
 export const setUserData = (value) => {
     return{
@@ -41,6 +91,20 @@ export const setUserData = (value) => {
 const setLoading = (value) => {
     return{
         type: actionTypes.SETLOADING,
+        value
+    }
+};
+
+const setDepositLoader = (value) => {
+    return{
+        type: actionTypes.SETDEPOSITLOADING,
+        value
+    }
+};
+
+const setDepositModal = (value) => {
+    return{
+        type: actionTypes.SETDEPOSITMODAL,
         value
     }
 }
