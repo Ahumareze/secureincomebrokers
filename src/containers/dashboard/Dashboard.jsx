@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 //styles
@@ -14,11 +14,15 @@ import { FaWallet } from 'react-icons/fa';
 import { AiFillBank } from 'react-icons/ai';
 import { BsCreditCard2BackFill } from 'react-icons/bs';
 import { RiHandCoinFill } from 'react-icons/ri';
+import Transactions from './components/Transactions';
 
 
 function Dashboard() {
     //redux state
     const userData = useSelector(state => state.mainReducer.userData);
+
+    //UI state
+    const [showmodal, setShowmodal] = useState(null);
 
     let container;
 
@@ -33,28 +37,7 @@ function Dashboard() {
                     <BalanceBox icon={ <BsCreditCard2BackFill size={14} /> } name='Withdrawn' amount={userData.withdrawn}  />
                 </div>
                 <Plans data={userData} />
-                <div className={classes.transactions}>
-                    <div className={classes.transactions_top}>
-                        <h2>Transactions</h2>
-                        <button>View All</button>
-                    </div>
-                    <div className={classes.transactions_container}>
-                        <div className={classes.transactions_header}>
-                            <div className={classes.transactions_header_sn}>SN</div>
-                            <div>Transaction</div>
-                            <div className={classes.transactions_header_type}>Type</div>
-                            <div className={classes.transactions_header_amount}>Amount</div>
-                            <div className={classes.transactions_header_status}>status</div>
-                            <div className={classes.transactions_header_date}>date</div>
-                        </div>
-                        <TransactionItem />
-                        <TransactionItem />
-                        <TransactionItem />
-                        <TransactionItem />
-                        <TransactionItem />
-                        <TransactionItem />
-                    </div>
-                </div>
+                <Transactions data={userData.transactions} onSelect={e => setShowmodal(e)} />
             </div>
         )
     }
@@ -64,7 +47,7 @@ function Dashboard() {
         <SideDrawer active={'Dashboard'}>
             {container}
         </SideDrawer>
-        {/* <TransactionModal /> */}
+        {showmodal && <TransactionModal data={showmodal} userId={userData.userId} close={() => setShowmodal(null)} />}
         </>
     )
 }

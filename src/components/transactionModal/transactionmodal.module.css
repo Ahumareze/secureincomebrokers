@@ -43,7 +43,7 @@
     padding-bottom: 20px;
     border-bottom: 0.5px solid #cbcbcb;
 }
-.icon{
+.icon, .icon_withdraw{
     height: 100px;
     width: 100px;
     background-color: cyan;
@@ -55,6 +55,10 @@
     align-items: center;
     justify-content: center;
     color: #2e2e2e;
+}
+.icon_withdraw{
+    background-color: rgb(255, 94, 94);
+    color: #fff;
 }
 .main_top h2{
     font-size: 25px;
@@ -85,9 +89,8 @@
     display: flex;
     justify-content: flex-end;
 }
-.pending{
+.pending, .failed, .success{
     height: 25px;
-    background-color: red;
     width: fit-content;
     border-radius: 20px;
     border: 1px solid rgb(0, 221, 0);
@@ -100,6 +103,16 @@
     align-items: center;
     justify-content: center;
 }
+.failed{
+    color: red;
+    background-color: rgba(255, 0, 0, 0.4);
+    border-color: red;
+}
+.success{
+    color: blue;
+    background-color: rgba(0, 255, 255, 0.502);
+    border-color: blue;
+}
 .main_container button{
     height: 45px;
     width: 100%;
@@ -111,4 +124,9 @@
     border: none;
     border-radius: 10px;
     margin-top: 10px;
+}
+@media (max-width: 500px) {
+    .container{
+        width: calc(100vw - 30px);
+    }
 }

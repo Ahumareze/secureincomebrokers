@@ -22,7 +22,7 @@
 .amount{
     font-weight: 600;
 }
-.status{
+.pending, .failed, .success{
     height: 25px;
     background-color: red;
     width: fit-content;
@@ -37,6 +37,16 @@
     align-items: center;
     justify-content: center;
 }
+.failed{
+    color: red;
+    background-color: rgba(255, 0, 0, 0.4);
+    border-color: red;
+}
+.success{
+    color: blue;
+    background-color: rgba(0, 255, 255, 0.502);
+    border-color: blue;
+}
 .transaction{
     display: flex;
     flex-direction: row;
@@ -48,6 +58,10 @@
     width: 35px;
     border-radius: 20px;
     object-fit: cover;
+}
+
+.type{
+    text-transform: capitalize;
 }
 
 @media (max-width: 1200px) {
