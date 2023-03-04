@@ -26,7 +26,6 @@
     margin-top: 7px;
 }
 .mainContainer{
-    height: 400px;
     width: 400px;
     border: 0.5px solid #cacaca;
     margin-right: auto;
@@ -43,11 +42,47 @@
     text-align: center;
 }
 .form_container{
-    height: 300px;
     width: 100%;
-    border: 1px solid #000;
     margin-top: 20px;
     display: flex;
     flex-direction: column;
     gap: 15px;
+}
+/******* Payment methods styling *********/
+.PaymentMethods h3{
+    font-size: 15px;
+    font-weight: 500;
+    margin: 0;
+    text-align: left;
+}
+.PaymentMethods_main{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 10px;
+}
+.PaymentMethod{
+    height: 40px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    cursor: pointer;
+    border-radius: 7px;
+    background-color: rgb(232, 232, 255);
+    color: var(--purple);
+}
+.PaymentMethod img{
+    height: 25px;
+    width: 25px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+.PaymentMethod p{
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
 }
