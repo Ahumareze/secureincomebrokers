@@ -6,17 +6,18 @@ import classes from './deposit.module.css';
 //componets
 import { DashboardHeader, Input, SelectInput, SideDrawer } from '../../components';
 import PaymentMethods from './components/PaymentMethods';
+import ConfirmModal from './components/ConfirmModal';
 
-//images
-import binance from '../../assets/crypto/binance.png';
-import bitcoin from '../../assets/crypto/bitcoin.png';
-import dogecoin from '../../assets/crypto/dogecoin.png';
-import ethereum from '../../assets/crypto/ethereum.png';
+//data
+import { coins } from '../../data';
+import DoneModal from './components/DoneModal';
+const plans = ['Basic', 'Advance', 'Diamond'];
 
 function Deposit() {
     //UI state
     const [selectedPlan, setSelectedPlan] = useState();
     const [amount, setAmount] = useState();
+    const [selectedPayment, setSelectedPayment] = useState('Basic');
 
     return (
         <SideDrawer active={'Deposit'}>
@@ -30,19 +31,26 @@ function Deposit() {
                     <h3>Deposit Form</h3>
                     <div className={classes.form_container}>
                         <Input title={'Amount'} type={'number'} onChange={e => setAmount(e)} value={50}  />
-                        <SelectInput title={'Select plan'} onChange={e => setSelectedPlan(e)} />
+                        <SelectInput title={'Select plan'} onChange={e => setSelectedPlan(e)} data={plans} value={'Basic'} />
                         <div className={classes.PaymentMethods}>
                             <h3>Payment method</h3>
                             <div className={classes.PaymentMethods_main}>
-                                <PaymentMethods img={bitcoin} name={'Bitcoin'} />
-                                <PaymentMethods img={binance} name={'Binance'} />
-                                <PaymentMethods img={ethereum} name={'Ethereum'} />
-                                <PaymentMethods img={dogecoin} name={'Dogecoin'} />
+                                {coins.map((i, idx) => (
+                                    <PaymentMethods
+                                        img={i.img}
+                                        name={i.name}
+                                        onSelect={() => setSelectedPayment(i.name)}
+                                        active={i.name === selectedPayment}
+                                        key={idx}
+                                    />
+                                ))}
                             </div>
                         </div>
                     </div>
+                    <button>Make Deposit</button>
                 </div>
             </div>
+            {/* <DoneModal /> */}
         </SideDrawer>
     );
 }

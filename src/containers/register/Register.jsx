@@ -11,6 +11,7 @@ import { Header, Input, Loader, Password, SelectInput } from "../../components";
 //redux actions
 import { register } from "../../redux/actions";
 import EmailModal from "./components/EmailModal";
+import { countries } from "../../data";
 
 const Register = () => {
     //initialize
@@ -20,7 +21,7 @@ const Register = () => {
     //form state
     const [name, setName] = useState();
     const [email, setEmail] = useState();
-    const [country, setCountry] = useState();
+    const [country, setCountry] = useState('United States of America');
     const [password, setPassword] = useState();
 
     //redux state
@@ -39,7 +40,7 @@ const Register = () => {
                 <div className={classes.inputsContainer}>
                     <Input title={'Fullname'} type='text' onChange={e => setName(e)} value={name} />
                     <Input title={'Email'} type='email' onChange={e => setEmail(e)} value={email} />
-                    <SelectInput title={'Country'} onChange={e => setCountry(e)} />
+                    <SelectInput title={'Country'} onChange={e => setCountry(e)} data={countries} value={'United States of America'} />
                     <Password onChange={e => setPassword(e)} value={password} />
                 </div>
                 <button onClick={handleRegister}>Create account</button>

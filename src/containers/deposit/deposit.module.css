@@ -48,7 +48,6 @@
     flex-direction: column;
     gap: 15px;
 }
-/******* Payment methods styling *********/
 .PaymentMethods h3{
     font-size: 15px;
     font-weight: 500;
@@ -72,6 +71,10 @@
     box-sizing: border-box;
     cursor: pointer;
     border-radius: 7px;
+    background-color: #f9f9f9;
+    color: #393939;
+}
+.active_paymentmethod{
     background-color: rgb(232, 232, 255);
     color: var(--purple);
 }
@@ -85,4 +88,16 @@
     margin: 0;
     font-size: 14px;
     font-weight: 500;
+}
+.mainContainer button{
+    height: 45px;
+    width: 100%;
+    background-color: var(--purple);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    margin-top: 30px;
 }
