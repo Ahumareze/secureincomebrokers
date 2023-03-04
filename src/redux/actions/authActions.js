@@ -16,7 +16,7 @@ export const init = () => {
             dispatch(setToken(null))
         }
     }
-}
+};
 
 export const register = (name, email, password, country) => {
     return dispatch => {
@@ -61,9 +61,12 @@ const postUserData = (name, email, country) => {
             email,
             country,
             deposited: 0,
-            balance: 0,
             earned: 0,
-            withdrawn: 0
+            withdrawn: 0,
+            basic_plan: 0,
+            advance_plan: 0,
+            diamond_plan: 0,
+            img: 'https://i.pinimg.com/474x/fd/14/a4/fd14a484f8e558209f0c2a94bc36b855--milk-tart-entertaiment-news.jpg'
         }
 
         axios.post(dbUrl + '/users.json', data).then(r => {
@@ -91,19 +94,27 @@ export const login = (email, password) => {
             localStorage.setItem('@localEmail', email);
 
             dispatch(setToken(token));
+            dispatch(setLoading(false))
         }).catch(e => {
             console.log(e);
             dispatch(setLoading(false))
         })
     }
-}
+};
+
+export const logout = () => {
+    return dispatch => {
+        localStorage.clear();
+        dispatch(setToken(null));
+    }
+};
 
 export const setEmailModal = (value) => {
     return{
         type: actionTypes.SETEMAILMODAL,
         value
     }
-}
+};
 
 const setToken = (value) => {
     return{

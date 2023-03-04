@@ -3,7 +3,8 @@ import * as actionTypes from '../actions/actionTypes';
 const initialState = {
     loading: false,
     emailModal: null,
-    showDrawer: false
+    showDrawer: false,
+    userData: null
 };
 
 const mainReducer = (state = initialState, action) => {
@@ -14,6 +15,8 @@ const mainReducer = (state = initialState, action) => {
             return {...state, emailModal: action.value};
         case(actionTypes.SETSHOWDRAWER):
             return {...state, showDrawer: action.value};
+        case(actionTypes.SETUSERDATA):
+            return {...state, userData: action.value};
     }
     return state;
 };

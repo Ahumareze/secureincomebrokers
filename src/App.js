@@ -44,7 +44,7 @@ function App() {
     </Routes>
   )
   return (
-    !token ? dashboardRoutes : authRoutes
+    token ? dashboardRoutes : authRoutes
   );
 }
 

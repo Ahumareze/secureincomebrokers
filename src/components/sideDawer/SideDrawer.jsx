@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
@@ -13,8 +13,11 @@ import { IoMdSwap } from 'react-icons/io';
 import { FaWallet } from 'react-icons/fa';
 import { FiLogOut } from 'react-icons/fi';
 
+//components
+import Loader from '../loader/Loader';
+
 //redux actions
-import { setShowDrawer } from '../../redux/actions';
+import { logout, setShowDrawer, fetch_data } from '../../redux/actions';
 
 
 function SideDrawer({children, active}) {
@@ -24,6 +27,12 @@ function SideDrawer({children, active}) {
 
     //redux state
     const showDrawer = useSelector(state => state.mainReducer.showDrawer);
+    const loading = useSelector(state => state.mainReducer.loading);
+    const userData = useSelector(state => state.mainReducer.userData);
+
+    useEffect(() => {
+        dispatch(fetch_data())
+    }, [])
 
     const handleNavigate = (to) => {
         dispatch(setShowDrawer(false));
@@ -39,18 +48,22 @@ function SideDrawer({children, active}) {
         )
     };
 
-    const closeDrawer = () => {
-        dispatch(setShowDrawer(false))
+    const handleLogout = () => {
+        dispatch(logout());
     }
 
-    return (
+    const closeDrawer = () => {
+        dispatch(setShowDrawer(false))
+    };
+
+    const container = (
         <div className={classes.container}>
             <div className={classes.SideDrawer}>
                 <p className={classes.logo}><span>Secure</span> Income Brokers</p>
                 <div className={classes.profile}>
-                    <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/191125_Lil_Nas_X_at_the_2019_American_Music_Awards.png/640px-191125_Lil_Nas_X_at_the_2019_American_Music_Awards.png' />
-                    <h3>Ifeanyi Ahumareze</h3>
-                    <p>ifeanyicodes001@gmail.com</p>
+                    <img src={userData.img} alt={userData.name} />
+                    <h3>{userData.name}</h3>
+                    <p>{userData.email}</p>
                 </div>
                 <div className={classes.linksContainer}>
                     <Link name={'Dashboard'} active={active === 'Dashboard'} path={'/dashboard'}> <MdSpaceDashboard size={20} /> </Link>
@@ -59,7 +72,7 @@ function SideDrawer({children, active}) {
                     <Link name={'Transactions'} active={active === 'Transactions'} path={'/transactions'}> <IoMdSwap size={20} /> </Link>
                     <Link name={'Wallets'} active={active === 'Wallets'} path={'/wallets'}> <FaWallet size={20} /> </Link>
                 </div>
-                <div className={classes.logout_button}>
+                <div className={classes.logout_button} onClick={handleLogout} >
                     <FiLogOut size={18} /> Logout
                 </div>
             </div>
@@ -70,9 +83,9 @@ function SideDrawer({children, active}) {
                     <div className={classes.mobile_sideDrawer_main}>
                         <p className={classes.logo2}><span>Secure</span> Income Brokers</p>
                         <div className={classes.profile}>
-                            <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/191125_Lil_Nas_X_at_the_2019_American_Music_Awards.png/640px-191125_Lil_Nas_X_at_the_2019_American_Music_Awards.png' />
-                            <h3>Ifeanyi Ahumareze</h3>
-                            <p>ifeanyicodes001@gmail.com</p>
+                            <img src={userData.img} alt={userData.name} />
+                            <h3>{userData.name}</h3>
+                            <p>{userData.email}</p>
                         </div>
                         <div className={classes.linksContainer}>
                             <Link name={'Dashboard'} active={active === 'Dashboard'} path={'/dashboard'}> <MdSpaceDashboard size={20} /> </Link>
@@ -81,13 +94,23 @@ function SideDrawer({children, active}) {
                             <Link name={'Transactions'} active={active === 'Transactions'} path={'/transactions'}> <IoMdSwap size={20} /> </Link>
                             <Link name={'Wallets'} active={active === 'Wallets'} path={'/wallets'}> <FaWallet size={20} /> </Link>
                         </div>
-                        <div className={classes.logout_button2}>
+                        <div className={classes.logout_button2} onClick={handleLogout} >
                             <FiLogOut size={18} /> Logout
                         </div>
                     </div>
                 </div>
             }
         </div>
+    );
+
+    const loader_container = (
+        <div className={classes.loader_container}>
+            <Loader />
+        </div>
+    )
+
+    return (
+        loading ? loader_container : container 
     )
 }
 
