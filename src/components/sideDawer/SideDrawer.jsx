@@ -96,10 +96,13 @@ function SideDrawer({children, active}) {
                                 <Link name={'Withdraw'} active={active === 'Withdraw'} path={'/withdraw'}> <BsCashStack size={20} /> </Link>
                                 <Link name={'Transactions'} active={active === 'Transactions'} path={'/transactions'}> <IoMdSwap size={20} /> </Link>
                                 <Link name={'Wallets'} active={active === 'Wallets'} path={'/wallets'}> <FaWallet size={20} /> </Link>
+                                <div className={classes.logout_button2} onClick={handleLogout} >
+                                    <FiLogOut size={18} /> Logout
+                                </div>
                             </div>
-                            <div className={classes.logout_button2} onClick={handleLogout} >
+                            {/* <div className={classes.logout_button2} onClick={handleLogout} >
                                 <FiLogOut size={18} /> Logout
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 }

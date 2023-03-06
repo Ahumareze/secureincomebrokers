@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 //styles
@@ -31,6 +31,14 @@ function Deposit() {
     const [amount, setAmount] = useState(50);
     const [selectedPayment, setSelectedPayment] = useState('Bitcoin');
     const [confirmModal, setConfirm] = useState(false)
+    const [balance, setBalance] = useState(0);
+
+    useEffect(() => {
+        if(userData){
+            const total = userData.basic_plan + userData.advance_plan + userData.diamond_plan;
+            setBalance(total)
+        }
+    }, [userData])
 
     const handleDeposit = () => {
         dispatch(deposit(amount,selectedPlan, selectedPayment, userData))
@@ -41,7 +49,7 @@ function Deposit() {
             <div className={classes.container}>
                 <DashboardHeader title={'Deposit'} />
                 <div className={classes.top}>
-                    <h3>Availiable Balance: <span>${userData.basic_plan + userData.advance_plan + userData.diamond_plan} </span></h3>
+                    <h3>Availiable Balance: <span>${balance} </span></h3>
                     <p>Fill out the deposit form below to fund your account.</p>
                 </div>
                 <div className={classes.mainContainer}>

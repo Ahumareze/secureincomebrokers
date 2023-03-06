@@ -32,6 +32,7 @@ const Register = () => {
     //redux state
     const loading = useSelector(state => state.mainReducer.loading);
     const emailModal = useSelector(state => state.mainReducer.emailModal);
+    const authError = useSelector(state => state.authReducer.authError);
 
     const handleRegister = () => {
         dispatch(register(name, email, password, country));
@@ -47,6 +48,7 @@ const Register = () => {
                     <Input title={'Email'} type='email' onChange={e => setEmail(e)} value={email} />
                     <SelectInput title={'Country'} onChange={e => setCountry(e)} data={countries} value={'United States of America'} />
                     <Password onChange={e => setPassword(e)} value={password} />
+                    {authError && <p style={{margin: 0, color: 'red', fontSize: 14}}>{authError}</p>}
                 </div>
                 <button onClick={handleRegister}>Create account</button>
                 <p className={classes.loginLink} onClick={() => navigate('/login')} >Already have an account? <span>Login instead</span></p>

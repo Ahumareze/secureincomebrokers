@@ -1,5 +1,5 @@
 import { register, init, setEmailModal, login, logout } from "./authActions";
-import { setShowDrawer, fetch_data, deposit } from "./mainActions";
+import { setShowDrawer, fetch_data, deposit, withdraw, handleEdit } from "./mainActions";
 
 export {
     register,
@@ -9,5 +9,7 @@ export {
     logout,
     setShowDrawer,
     fetch_data,
-    deposit
+    deposit,
+    withdraw,
+    handleEdit
 }

@@ -27,6 +27,7 @@ function Login() {
 
     //redux state
     const loading = useSelector(state => state.mainReducer.loading);
+    const authError = useSelector(state => state.authReducer.authError);
 
     const submitHandler = () => {
         dispatch(login(email, password))
@@ -40,6 +41,7 @@ function Login() {
                 <div className={classes.inputsContainer}>
                     <Input title={'Email'} type='email' onChange={e => setEmail(e)} value={email} />
                     <Password onChange={e => setPassword(e)} value={password} />
+                    {authError && <p style={{margin: 0, color: 'red', fontSize: 14}}>{authError}</p>}
                 </div>
                 <button onClick={submitHandler}>Sign In</button>
                 <p className={classes.loginLink} onClick={() => navigate('/register')} >Don't have an account? <span>Signup instead</span></p>

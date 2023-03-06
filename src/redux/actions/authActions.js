@@ -34,7 +34,13 @@ export const register = (name, email, password, country) => {
             const token = r.data.idToken;
             dispatch(sendEmail(name, email, country, token));
         }).catch(e => {
-            console.log(e)
+            // console.log(e);
+            if(e.response){
+                dispatch(setAuthError(e.response.data.error.message));
+            }else{
+                dispatch(setAuthError(e.message));
+            }
+            dispatch(setLoading(false))
         })
     }
 };
@@ -49,7 +55,7 @@ const sendEmail = (name, email, country, token) => {
         axios.post(verificationEmail, data).then(r => {
             dispatch(postUserData(name, email, country));
         }).catch(e => {
-            console.log(e)
+            // console.log(e)
         })
     }
 };
@@ -66,14 +72,18 @@ const postUserData = (name, email, country) => {
             basic_plan: 0,
             advance_plan: 0,
             diamond_plan: 0,
-            img: 'https://i.pinimg.com/474x/fd/14/a4/fd14a484f8e558209f0c2a94bc36b855--milk-tart-entertaiment-news.jpg'
+            img: 'https://i.pinimg.com/474x/fd/14/a4/fd14a484f8e558209f0c2a94bc36b855--milk-tart-entertaiment-news.jpg',
+            bitcoin_address: 'update your bitcoin wallet address',
+            ethereum_address: 'update your ethereum wallet address',
+            binance_address: 'update your bnb wallet address',
+            dogecoin_address: 'update your dogecoin wallet address',
         }
 
         axios.post(dbUrl + 'users.json', data).then(r => {
             dispatch(setLoading(false));
             dispatch(setEmailModal(email))
         }).catch(e => {
-            console.log(e)
+            // console.log(e)
         })
     }
 };
@@ -96,7 +106,11 @@ export const login = (email, password) => {
             dispatch(setToken(token));
             dispatch(setLoading(false))
         }).catch(e => {
-            console.log(e);
+            if(e.response){
+                dispatch(setAuthError(e.response.data.error.message));
+            }else{
+                dispatch(setAuthError(e.message));
+            }
             dispatch(setLoading(false))
         })
     }
@@ -126,6 +140,13 @@ const setToken = (value) => {
 const setLoading = (value) => {
     return{
         type: actionTypes.SETLOADING,
+        value
+    }
+};
+
+const setAuthError = (value) => {
+    return{
+        type: actionTypes.SETAUTHERROR,
         value
     }
 }

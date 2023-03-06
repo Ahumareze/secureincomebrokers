@@ -4,9 +4,13 @@ const initialState = {
     loading: false,
     depositLoading: false,
     depositModal: false,
+    withdrawLoading: false,
+    withdrawModal: false,
     emailModal: null,
     showDrawer: false,
-    userData: null
+    userData: null,
+    walletLoading: false,
+    walletModal: false
 };
 
 const mainReducer = (state = initialState, action) => {
@@ -23,6 +27,14 @@ const mainReducer = (state = initialState, action) => {
             return {...state, depositLoading: action.value};
         case(actionTypes.SETDEPOSITMODAL):
             return {...state, depositModal: action.value};
+        case(actionTypes.SETWITHDRAWLOADING):
+            return {...state, withdrawLoading: action.value};
+        case(actionTypes.SETWITHDRAWMODAL):
+            return {...state, withdrawModal: action.value};
+        case(actionTypes.SETWALLETLOADING):
+            return {...state, walletLoading: action.value};
+        case(actionTypes.SETWALLETMODAL):
+            return {...state, walletModal: action.value}
     }
     return state;
 };

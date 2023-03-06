@@ -145,4 +145,9 @@
     .formContainer{
         width: calc(100% - 30px);
     }
+    .emailModal_main{
+        width: calc(100% - 30px);
+        margin-right: auto;
+        margin-left: auto;
+    }
 }
