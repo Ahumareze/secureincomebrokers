@@ -12,6 +12,7 @@ function Footer() {
                     <input placeholder='enter your email' />
                     <button>Subscribe</button>
                 </div>
+                <p className={classes.phone}>For more info contact: <span>+1 (657) 534-9439</span></p>
                 <p className={classes.copyright}>Copyright© 2023 www.secureincomebrokers.com, All Rights Reserved</p>
             </div>
         </div>

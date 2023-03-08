@@ -4,7 +4,7 @@ import React from 'react';
 import classes from './about.module.css';
 
 //images
-import aboutImg from '../../../../assets/about.png';
+import aboutImg from '../../../../assets/about.jpeg';
 
 function AboutMini() {
     return (

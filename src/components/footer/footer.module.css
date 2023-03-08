@@ -56,6 +56,15 @@
     margin: 0;
     margin-top: 50px;
 }
+.phone{
+    font-size: 14px;
+    color: #e7e7e7;
+    margin-top: 50px;
+}
+.phone span{
+    font-weight: 600;
+    color: #fff;
+}
 @media (max-width: 500px) {
     .container{
         padding: 0 20px;

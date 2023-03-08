@@ -8,7 +8,7 @@ import classes from './header.module.css';
 const links = [
     {name: 'Home', link: '/'},
     {name: 'About', link: '/about'},
-    {name: 'FAQs', link: '/faqs'},
+    // {name: 'FAQs', link: '/faqs'},
     {name: 'Login', link: '/login'},
     {name: 'Register', link: '/register'},
 ]

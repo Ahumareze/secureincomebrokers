@@ -1,0 +1,6 @@
+.TradingWidget{
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    margin-top: 50px;
+}

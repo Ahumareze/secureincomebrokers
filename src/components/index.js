@@ -16,6 +16,10 @@ import Input from "./inputs/Input";
 import SelectInput from "./inputs/SelectInput";
 import Password from "./inputs/Password";
 
+//widgets
+import SliderWidget from "./widgets/SliderWidget";
+import TradingWidget from "./widgets/TradingWidger";
+
 
 export {
     Header,
@@ -31,5 +35,8 @@ export {
 
     Input,
     SelectInput,
-    Password
+    Password,
+
+    SliderWidget,
+    TradingWidget
 }

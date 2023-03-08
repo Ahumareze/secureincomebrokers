@@ -1,0 +1,32 @@
+.container{
+    height: fit-content;
+    width: fit-content;
+    background-color: #fff;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    border-radius: 10px;
+    padding: 15px;
+    box-sizing: border-box;
+    animation: slideIn 1.5s ease forwards;
+    border: 0.5px solid #b1b1b1;
+}
+@keyframes slideIn {
+    0%{transform: translateY(100px); opacity: 0;}
+    100%{transform: translateY(0px); opacity: 1;}
+}
+.container p{
+    margin: 0;
+    font-size: 15px;
+    color: #6a6a6a;
+}
+.container p span{
+    font-weight: 500;
+    color: #000;
+}
+.container h3{
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 5px;
+}

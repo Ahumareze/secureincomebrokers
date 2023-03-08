@@ -31,13 +31,13 @@ function ComfirmModal({plan, amount, coin, close, deposit}) {
 
     let wallet;
     if(coin === 'Binance'){
-        wallet = 'Bin - 1F4h7nbQjY8MFTeEhnzs6KjDYuL3Ji5xqk';
+        wallet = 'Bin - not availiable at the moment';
     }else if(coin === 'Ethereum'){
-        wallet = 'Eth - 1F4h7nbQjY8MFTeEhnzs6KjDYuL3Ji5xqk'
+        wallet = 'Eth - not availiable at the moment'
     }else if(coin === 'Dogecoin'){
-        wallet = 'Doge - 1F4h7nbQjY8MFTeEhnzs6KjDYuL3Ji5xqk'
+        wallet = 'Doge - not availiable at the moment'
     }else{
-        wallet = 'Btc - 1F4h7nbQjY8MFTeEhnzs6KjDYuL3Ji5xqk'
+        wallet = 'Btc - bc1q0wdfwrkegnd9ytsv00f72l9sv2t8lnc89dn29l'
     }
 
     let profit;
