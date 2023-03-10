@@ -2,11 +2,6 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import classes from './coursel.module.css';
 
-//images
-import service1 from '../../../../assets/service1.jpeg';
-import service2 from '../../../../assets/service2.jpeg';
-import service3 from '../../../../assets/service3.jpeg';
-
 //icons
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 import { useNavigate } from 'react-router-dom';

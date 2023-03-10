@@ -9,6 +9,7 @@ import PlansUpdate from "./plansUpdate/PlansUpdate";
 import Transactions from "./transactions/Transactions";
 import VideoModal from "./videoModal/VideoModal";
 import NewTransaction from "./newTransaction/NewTransaction";
+import Reviews from "./reviews/Reviews";
 
 export {
     About,
@@ -20,5 +21,6 @@ export {
     Video,
     Transactions,
     VideoModal,
-    NewTransaction
+    NewTransaction,
+    Reviews
 }
