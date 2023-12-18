@@ -15,6 +15,7 @@ import { AiFillBank } from 'react-icons/ai';
 import { BsCreditCard2BackFill } from 'react-icons/bs';
 import { RiHandCoinFill } from 'react-icons/ri';
 import Transactions from './components/Transactions';
+import NewPlans from './components/newPlans/NewPlans';
 
 
 function Dashboard() {
@@ -31,13 +32,13 @@ function Dashboard() {
             <div className={classes.container}>
                 <DashboardHeader title={'Dashboard'} />
                 <div className={classes.balanceBoxes}>
-                    <BalanceBox icon={ <FaWallet size={14} /> } name='Balance' secure amount={ userData.basic_plan + userData.advance_plan + userData.diamond_plan } />
+                    <BalanceBox icon={ <FaWallet size={14} /> } name='Balance' secure amount={ userData.balance} />
                     <BalanceBox icon={ <AiFillBank size={14} /> } name='Deposited' amount={userData.deposited}  />
                     <BalanceBox icon={ <RiHandCoinFill size={14} /> } name='Earnings' amount={userData.earned}  />
                     <BalanceBox icon={ <BsCreditCard2BackFill size={14} /> } name='Withdrawn' amount={userData.withdrawn}  />
                 </div>
-                <Plans data={userData} />
                 <Transactions data={userData.transactions} onSelect={e => setShowmodal(e)} />
+                <NewPlans />
             </div>
         )
     }

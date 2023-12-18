@@ -13,7 +13,7 @@ function Plans({data}) {
     //initialize
     const navigate = useNavigate();
 
-    const Plan = ({icon, color, name, poleLength, range, images, users, amount}) => {
+    const Plan = ({icon, color, name, writeUp, range, images, users, amount}) => {
         const originalLength = percentage(amount, range[0], range[1]);
 
         let length;
@@ -28,12 +28,12 @@ function Plans({data}) {
                     <div className={classes.icon} style={{backgroundColor: color}}>{icon}</div>
                     <div className={classes.name}>{name}</div>
                 </div>
-                <div className={classes.intro}>Earn $300 by investing up to $1000 while earning 20% weekly</div>
+                <div className={classes.intro}>{writeUp}</div>
                 <div className={classes.main}>
                     <div className={classes.pole}> <div style={{backgroundColor: color, width: length}} /> </div>
                     <div className={classes.amount}>
-                        <div>${(range[0]).toLocaleString()}</div>
-                        <div>${(range[1]).toLocaleString()}</div>
+                        <div>{range[0]}</div>
+                        <div>{range[1]}</div>
                     </div>
                 </div>
                 <div className={classes.bottom}>
@@ -55,9 +55,9 @@ function Plans({data}) {
         <div className={classes.container}>
             <h2>Plans</h2>
             <div className={classes.mainContainer}>
-                <Plan icon={'🚀'} color={'cyan'} name={'Basic'} poleLength={'20%'} range={[50, 1000]} amount={data.basic_plan} images={plan1} users={1843} />
-                <Plan icon={'🔥'} color={'paleGreen'} name={'Advance'} poleLength={'10%'} range={[700, 20000]} amount={data.advance_plan} images={plan2} users={406}/>
-                <Plan icon={'💎'} color={'rgb(255, 214, 239)'} name={'Premium'} poleLength={'50%'} range={[4000, 100000]} amount={data.diamond_plan} images={plan3} users={119} />
+                <Plan icon={'🚀'} color={'cyan'} name={'Basic'} range={['$500', '$999']} amount={data.basic_plan} images={plan1} users={1843} writeUp={'Invest a minumum of $500 and earn at an interest of 7% after 24 hours'} />
+                <Plan icon={'🔥'} color={'paleGreen'} name={'Advance'} range={['$5,000', 'Unlimited']} amount={data.advance_plan} images={plan2} users={406} writeUp={'Invest a minumum of $5000 and earn at an interest of 15% after 24 hours'}/>
+                <Plan icon={'💎'} color={'rgb(255, 214, 239)'} name={'Premium'} range={['$25,000', 'Unlimited']} amount={data.diamond_plan} images={plan3} users={119} writeUp={'Invest a minumum of $25,000 and earn at an interest of 30% after 38 hours'} />
             </div>
         </div>
     )

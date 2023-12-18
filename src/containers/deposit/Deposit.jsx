@@ -16,7 +16,7 @@ import DoneModal from './components/DoneModal';
 //redux actions
 import { deposit } from '../../redux/actions';
 
-const plans = ['Basic', 'Advance', 'Diamond'];
+const plans = ['Light Trader', 'Pro Trader', 'Advance Trader', 'Tycoon Trader', 'Premium Trader', 'Masters Trader', 'Elite Trader', 'VIP Trader'];
 
 function Deposit() {
     //initialize
@@ -35,7 +35,7 @@ function Deposit() {
 
     useEffect(() => {
         if(userData){
-            const total = userData.basic_plan + userData.advance_plan + userData.diamond_plan;
+            const total = userData.balance;
             setBalance(total)
         }
     }, [userData])

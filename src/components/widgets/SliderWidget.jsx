@@ -12,24 +12,32 @@ function SliderWidget(props) {
         script.innerHTML = JSON.stringify({
             "symbols": [
               {
-                "proName": "FOREXCOM:SPXUSD",
-                "title": "S&P 500"
-              },
-              {
-                "proName": "FOREXCOM:NSXUSD",
-                "title": "Nasdaq 100"
-              },
-              {
-                "proName": "FX_IDC:EURUSD",
-                "title": "EUR/USD"
-              },
-              {
                 "proName": "BITSTAMP:BTCUSD",
-                "title": "BTC/USD"
+                "title": "Bitcoin"
               },
               {
                 "proName": "BITSTAMP:ETHUSD",
-                "title": "ETH/USD"
+                "title": "Ethereum"
+              },
+              {
+                "description": "XRP",
+                "proName": "BINANCE:XRPUSDT"
+              },
+              {
+                "description": "SOL/USDT",
+                "proName": "BINANCE:SOLUSDT"
+              },
+              {
+                "description": "LTC",
+                "proName": "BINANCE:LTCUSDT"
+              },
+              {
+                "description": "Shiba Inu",
+                "proName": "COINBASE:SHIBUSD"
+              },
+              {
+                "description": "Luna",
+                "proName": "BINANCE:LUNCUSDT"
               }
             ],
             "showSymbolLogo": true,

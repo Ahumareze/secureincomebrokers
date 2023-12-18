@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 //components
 import { Footer, Header, SideBar, SliderWidget, TradingWidget } from '../../components';
-import { About, Coursel, NewTransaction, PlansUpdate, Reviews, Services, Stats, Team, Transactions, Video, VideoModal } from './components';
+import { About, Coursel, NewTransaction, Plans, PlansUpdate, Reviews, Services, Stats, Team, Transactions, Video, VideoModal, Whatsapp } from './components';
 
 //styles
 import classes from './landingpage.module.css';
@@ -44,8 +44,8 @@ function LandingPage() {
     return (
         <div className={classes.container}>
             <Header active={'Home'} open={() => setShowSidebar(true)}/>
-            <Coursel open={() => setPlayVideo(true)} />
             <SliderWidget />
+            <Coursel open={() => setPlayVideo(true)} />
             <About />
             <Services />
             <TradingWidget />
@@ -59,6 +59,7 @@ function LandingPage() {
             {showSidebar && <SideBar close={() => setShowSidebar(false)}  />}
             {playVideo && <VideoModal close={() => setPlayVideo(false)} /> }
             {showModal && <NewTransaction name={currentItem.name} amount={currentItem.amount} type={currentItem.type} />}
+            <Whatsapp />
         </div>
     )
 }

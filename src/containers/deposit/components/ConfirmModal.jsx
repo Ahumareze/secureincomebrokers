@@ -37,7 +37,7 @@ function ComfirmModal({plan, amount, coin, close, deposit}) {
     }else if(coin === 'Dogecoin'){
         wallet = 'Doge - not availiable at the moment'
     }else{
-        wallet = 'Btc - bc1q0wdfwrkegnd9ytsv00f72l9sv2t8lnc89dn29l'
+        wallet = 'Btc - bc1qpd3p3y5vg2gzde9an7058c50yest7500hgw8la'
     }
 
     let profit;

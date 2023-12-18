@@ -10,17 +10,20 @@ import Transactions from "./transactions/Transactions";
 import VideoModal from "./videoModal/VideoModal";
 import NewTransaction from "./newTransaction/NewTransaction";
 import Reviews from "./reviews/Reviews";
+import Whatsapp from "./whatsapp/Whatsapp";
 
 export {
     About,
     Coursel,
     Services,
     PlansUpdate,
+    Plans,
     Stats,
     Team,
     Video,
     Transactions,
     VideoModal,
     NewTransaction,
-    Reviews
+    Reviews,
+    Whatsapp
 }

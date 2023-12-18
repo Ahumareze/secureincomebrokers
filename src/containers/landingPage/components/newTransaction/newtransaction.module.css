@@ -10,6 +10,7 @@
     box-sizing: border-box;
     animation: slideIn 1.5s ease forwards;
     border: 0.5px solid #b1b1b1;
+    z-index: 200;
 }
 @keyframes slideIn {
     0%{transform: translateY(100px); opacity: 0;}

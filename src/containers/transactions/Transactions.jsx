@@ -21,7 +21,7 @@ function Transactions() {
             <div className={classes.container}>
                 <DashboardHeader title={'Transactions'} />
                 <div className={classes.top}>
-                    <h3>Availiable Balance: <span>${userData.basic_plan + userData.advance_plan + userData.diamond_plan}</span></h3>
+                    <h3>Availiable Balance: <span>${userData.balance}</span></h3>
                 </div>
                 <TransactionsList data={userData.transactions} onSelect={e => setShowmodal(e)} />
             </div>

@@ -43,7 +43,7 @@ function Wallets() {
             <div className={classes.container}>
                 <DashboardHeader title={edit ? 'Update Wallets' : 'Wallets'} />
                 <div className={classes.top}>
-                    <h3>Availiable Balance: <span>${userData.basic_plan + userData.advance_plan + userData.diamond_plan}</span></h3>
+                    <h3>Availiable Balance: <span>${userData.balance}</span></h3>
                     <p>Withdraw funds from your Secure Income Brokers account straight to your crypto wallet</p>
                 </div>
                 {loading ? <Loader /> : container}
